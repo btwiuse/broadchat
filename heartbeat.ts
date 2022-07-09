@@ -1,8 +1,8 @@
 const DENO_REGION = Deno.env.get("DENO_REGION") ?? "localhost";
-const DOMAIN = 'broxy.deno.dev';
+const DOMAIN = 'broadchat.deno.dev';
 
 var Counter = 0;
-const VERSION = 'v1';
+const VERSION = 'v2';
 
 async function heartbeat() {
   const url = `https://${DOMAIN}/api/send`;

@@ -1,6 +1,21 @@
 import { generate as generateUUID } from "https://deno.land/std@0.98.0/uuid/v4.ts";
 import { Message } from "../../types.ts";
 
+const DENO_REGION = Deno.env.get("DENO_REGION");
+
+async function heartbeat(){
+  let resp = await fetch("https://broadchat.deno.dev/api/send", {
+    "body": JSON.stringify({
+      user: DENO_REGION,
+      body: new Date(),
+    }),
+    "method": "POST",
+  });
+  await resp.text();
+}
+
+setInterval(heartbeat, 3000);
+
 export async function POST(req: Request): Promise<Response> {
   const msg = await req.json();
 

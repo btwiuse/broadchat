@@ -8,7 +8,7 @@ import {
 } from "../deps.ts";
 import { Message } from "../types.ts";
 
-const DENO_REGION = Deno.env.get("DENO_REGION");
+const DENO_REGION = IS_BROWSER ? "browser" : Deno.env.get("DENO_REGION");
 
 export default function Home() {
   const [user, setUser] = useState(

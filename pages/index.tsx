@@ -19,9 +19,9 @@ export default function Home() {
 
   return (
     <div>
-      <h2>Deploy Chat</h2>
+      <h2>Broad Chat</h2>
       <p>
-        Welcome to the Deno Deploy chat demo. This application sends your chat
+        Welcome to the Deno Deploy BroadcastChannel chat demo. This application sends your chat
         messages live across the world using a global `BroadcastChannel` in Deno
         Deploy.
       </p>

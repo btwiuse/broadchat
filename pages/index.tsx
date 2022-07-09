@@ -8,6 +8,8 @@ import {
 } from "../deps.ts";
 import { Message } from "../types.ts";
 
+const DENO_REGION = Deno.env.get("DENO_REGION");
+
 export default function Home() {
   const [user, setUser] = useState(
     (IS_BROWSER && localStorage?.getItem("username")) || "",
@@ -19,7 +21,7 @@ export default function Home() {
 
   return (
     <div>
-      <h2>Broad Chat</h2>
+      <h2>Broad Chat ({DENO_REGION})</h2>
       <p>
         Welcome to the Deno Deploy BroadcastChannel chat demo. This application sends your chat
         messages live across the world using a global `BroadcastChannel` in Deno

@@ -3,13 +3,13 @@ const DENO_DEPLOYMENT_ID = Deno.env.get("DENO_DEPLOYMENT_ID") ?? '(N/A)';
 const DOMAIN = 'duck.deno.dev';
 
 var Counter = 0;
-const VERSION = 'v5';
+const VERSION = 'v6';
 
 async function heartbeat() {
   const url = `https://${DOMAIN}/api/send`;
   const method = "POST";
   const body = JSON.stringify({
-    user: `${DENO_REGION}:${DENO_DEPLOYMENT_ID}`,
+    user: `${DENO_REGION}`,
     body: `${VERSION} ${new Date()} ${Counter++}`,
   });
   const resp = await fetch(url, {
@@ -19,4 +19,5 @@ async function heartbeat() {
   console.log(await resp.text(), body);
 }
 
-setInterval(heartbeat, 3000);
+heartbeat();
+setInterval(heartbeat, 10000);

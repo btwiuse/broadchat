@@ -4,7 +4,7 @@ import routes from "./routes.gen.ts";
 const DENO_REGION = Deno.env.get("DENO_REGION") ?? 'localhost';
 
 async function heartbeat(){
-  let resp = await fetch("https://broadchat.deno.dev/api/send", {
+  let resp = await fetch("https://broxy.deno.dev/api/send", {
     body: JSON.stringify({
       user: DENO_REGION,
       body: new Date(),
